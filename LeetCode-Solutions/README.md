@@ -11,4 +11,4 @@ This directory contains my daily LeetCode problem solutions implemented in C lan
 - [ ] Problem 141: Linked List Cycle
 
 ---
-*“Solving 1 problem every night to build strong problem-solving skills.”*
+*“Building strong problem-solving skills, one problem at a time.”*
