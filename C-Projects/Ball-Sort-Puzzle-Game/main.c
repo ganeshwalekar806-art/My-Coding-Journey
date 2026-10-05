@@ -1,19 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define max 5
-
-
+#define max 5 // Defining the maximum capacity for each stack
 
 int main()
 {
+    // Array declarations for three separate stacks
     int stack1[max];
     int stack2[max];
     int stack3[max];
-    int ele,ch,i;
+    int ele, ch, i;
+    
+    // Top pointers for each stack initialized to -1 (indicating empty stacks)
     int top1 = -1;
     int top2 = -1;
     int top3 = -1; 
 
+    // Infinite loop to continuously present the main menu options
     while(1)
     {
         printf("\n1 => PUSH OPRATION\n");
@@ -21,26 +23,26 @@ int main()
         printf("3 => DISPLAY OPRATION\n");
         printf("4 => EXIT\n\n");
         printf("enter your choice: ");
-        scanf("%d",&ch);
+        scanf("%d", &ch);
 
         switch(ch)
         {
-            case 1: // perform PUSH OPRATION  on stack 1 stack 2 and stack 3 
+            case 1: // perform PUSH OPRATION on stack 1, stack 2, and stack 3 
              while(1)
              {
                 printf("\n1 => PUSH ON 1 STACK\n");
                 printf("2 => PUSH ON 2 STACK\n");
                 printf("3 => PUSH ON 3 STACK\n");
                 printf("enter your choice: ");
-                scanf("%d",&ch);
+                scanf("%d", &ch);
 
                 switch(ch)
                 {
                    case 1: // push on stack 1
                    printf("enter element for push opration: ");
-                   scanf("%d",&ele);
+                   scanf("%d", &ele);
 
-                   stack1[top1+1]=ele;
+                   stack1[top1 + 1] = ele;
                    top1++;
 
                    printf("\nSUCCESSFULLY PERFORM PUSH OPRATION ON STACK 1\n");
@@ -48,11 +50,10 @@ int main()
                    break;
 
                    case 2: // push on stack 2
-
                    printf("enter element for push opration: ");
-                   scanf("%d",&ele);
+                   scanf("%d", &ele);
 
-                   stack2[top2+1]=ele;
+                   stack2[top2 + 1] = ele;
                    top2++;
 
                    printf("\nSUCCESSFULLY PERFROM PUSH OPRATION STACK 2\n");
@@ -60,11 +61,10 @@ int main()
                    break;
 
                    case 3: // push on stack 3 
-
                    printf("enter element for push opration: ");
-                   scanf("%d",&ele);
+                   scanf("%d", &ele);
 
-                   stack3[top3+1]=ele;
+                   stack3[top3 + 1] = ele;
                    top3++;
 
                    printf("\nSUCCESSFULLY PERFORM PUSH OPRATION STACK 3\n");
@@ -75,11 +75,11 @@ int main()
 
                 break;
 
-             }// of main case 1 ush opration  while loop
+             }// end of main case 1 push opration while loop
 
              break;
 
-             case 2: // pop opration on 1,2 and 3 stack 
+             case 2: // pop opration on 1, 2, and 3 stack 
              
              while(1)
              {
@@ -87,80 +87,71 @@ int main()
                 printf("2 => POP FROM STACK 2\n");
                 printf("3 => POP FROM STACK 3\n");
                 printf("enter your choice: ");
-                scanf("%d",&ch);
+                scanf("%d", &ch);
 
                 switch(ch)
                 {
-                    case 1: // pop from stack 1 and push on stack2 and stack3 
+                    case 1: // pop from stack 1 and push on stack 2 and stack 3 
 
                     while(1)
                     {
                         printf("\n1 => push on 2 stack\n");
                         printf("2 => push on 3 stack\n");
                         printf("enter your choice: ");
-                        scanf("%d",&ch);
+                        scanf("%d", &ch);
 
                         switch(ch)
                         {
                             case 1: // push on stack 2 and pop from stack 1
 
-                            if( top2 == -1)
+                            if(top2 == -1)
                             {
-                                stack2[top2+1] = stack1[top1];
+                                stack2[top2 + 1] = stack1[top1];
                                 top2++;
                                 top1--;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 1 AND PUSH ON STACK 2\n");
-                                
                             }
                             else
                             {
-
+                             // Check if values match before conditional transfer
                              if(stack1[top1] == stack2[top2])
                              {
-                                stack2[top2+1] = stack1[top1];
+                                stack2[top2 + 1] = stack1[top1];
                                 top1--;
                                 top2++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 1 AND PUSH ON STACK 2\n");
-
                              }
                              else
                              {
                                 printf("\nVALUE OF STACK 1 AND STACK 2 ARE NOT SAME DO NOT PERFORM PUSH OPRATION\n");
                              }
-
                             }
 
                             break;
 
                             case 2: // push on 3 stack and pop from stack 1
 
-                            if( top3 == -1)
+                            if(top3 == -1)
                             {
-                                stack3[top3+1] = stack1[top1];
+                                stack3[top3 + 1] = stack1[top1];
                                 top1--;
                                 top3++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 1 AND PUSH ON STACK 3\n");
-
                             }
                             else
                             {
-                            
                              if(stack1[top1] == stack3[top3])
                              {
-                                stack3[top3+1] = stack1[top1];
+                                stack3[top3 + 1] = stack1[top1];
                                 top1--;
                                 top3++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 1 AND PUSH ON STACK 3\n");
-
                              }
                              else
                              {
                                 printf("\nVALUE OF STACK 1 AND STACK 3 ARE NOT SAME DO NOT PERFORM PUSH OPRATION\n");
                              }
-
                             } 
-
-                           
 
                             break;
 
@@ -168,7 +159,7 @@ int main()
 
                         break;
 
-                    }//end of inner case 1 pop opration on firts stack  while loop
+                    }// end of inner case 1 pop opration on first stack while loop
 
                     break;
 
@@ -179,7 +170,7 @@ int main()
                         printf("\n1 => Push on 1 stack\n");
                         printf("2 => push on 3 stack\n");
                         printf("enter your choice: ");
-                        scanf("%d",&ch);
+                        scanf("%d", &ch);
 
                         switch(ch)
                         {
@@ -187,22 +178,19 @@ int main()
 
                             if(top1 == -1)
                             {
-                                stack1[top1+1] = stack2[top2];
+                                stack1[top1 + 1] = stack2[top2];
                                 top2--;
                                 top1++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 2 AND PUSH ON STACK 1 \n");
-
                             }
-
                             else
                             {
                                 if(stack2[top2] == stack1[top1])
                                 {
-                                    stack1[top1+1] = stack2[top2];
+                                    stack1[top1 + 1] = stack2[top2];
                                     top2--;
                                     top1++;
                                     printf("\nSUCESSFULLY PERFORM POP FROM STACK 2 AND PUSH ON STACK 1 \n");
-
                                 }
                                 else
                                 {
@@ -210,30 +198,25 @@ int main()
                                 }
                             }
 
-                            
-
                             break;
 
-                            case 2:// push on 3stack and pop from stack of 2
+                            case 2: // push on 3 stack and pop from stack of 2
                             
                             if(top3 == -1)
                             {
-                                stack3[top3+1] = stack2[top2];
+                                stack3[top3 + 1] = stack2[top2];
                                 top2--;
                                 top3++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM STACK 2 AND PUSH ON STACK 3 \n");
-
                             }
-
                             else
                             {
                                 if(stack2[top2] == stack3[top3])
                                 {
-                                    stack3[top3+1] = stack2[top2];
+                                    stack3[top3 + 1] = stack2[top2];
                                     top2--;
                                     top3++;
                                     printf("\nSUCESSFULLY PERFORM POP FROM STACK 2 AND PUSH ON STACK 3 \n");
-
                                 }
                                 else
                                 {
@@ -243,7 +226,7 @@ int main()
 
                             break;
 
-                        }// end of  inner case 2 pop from stack 2 opration switch case 
+                        }// end of inner case 2 pop from stack 2 opration switch case 
                         
                         break;
 
@@ -258,7 +241,7 @@ int main()
                         printf("\n1 => push on 1 stack\n");
                         printf("2 => push on 2 stack\n");
                         printf("enter your choice: ");
-                        scanf("%d",&ch);
+                        scanf("%d", &ch);
 
                         switch(ch)
                         {
@@ -266,22 +249,19 @@ int main()
 
                             if(top1 == -1)
                             {
-                                stack1[top1+1] = stack3[top3];
+                                stack1[top1 + 1] = stack3[top3];
                                 top3--;
                                 top1++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM 3 AND PUSH ON STACK 1\n");
-                                
                             }
-
                             else
                             {
                                 if(stack3[top3] == stack1[top1])
                                 {
-                                    stack1[top1+1] = stack3[top3];
+                                    stack1[top1 + 1] = stack3[top3];
                                     top3--;
                                     top1++;
                                     printf("\nSUCESSFULLY PERFORM POP FROM 3 AND PUSH ON STACK 1\n");
-
                                 }
                                 else
                                 {
@@ -289,30 +269,25 @@ int main()
                                 }
                             }
 
-                           
-
                             break;
 
                             case 2: // push on 2 stack and pop from 3 stack
 
                             if(top2 == -1)
                             {
-                                stack2[top2+1] = stack3[top3];
+                                stack2[top2 + 1] = stack3[top3];
                                 top3--;
                                 top2++;
                                 printf("\nSUCESSFULLY PERFORM POP FROM 3 AND PUSH ON STACK 2\n");
-                                
                             }
-
                             else
                             {
                                 if(stack3[top3] == stack2[top2])
                                 {
-                                    stack2[top2+1] = stack3[top3];
+                                    stack2[top2 + 1] = stack3[top3];
                                     top2++;
                                     top3--;
                                     printf("\nSUCESSFULLY PERFORM POP FROM 3 AND PUSH ON STACK 2\n");
-
                                 }
                                 else
                                 {
@@ -320,15 +295,13 @@ int main()
                                 }
                             }
 
-                           
-
                             break;
 
                         }// end of inner case 3 pop from stack three switch case  
 
                         break;
 
-                    }//end of inner case 3 pop from stack three while loop 
+                    }// end of inner case 3 pop from stack three while loop 
 
                     break;
 
@@ -348,27 +321,26 @@ int main()
                 printf("2 => dispaly 2 stack\n");
                 printf("3 => display 3 stack\n");
                 printf("enter your choice: ");
-                scanf("%d",&ch);
+                scanf("%d", &ch);
 
                 switch(ch)
                 {
                     case 1: // display 1 stack
 
-                    if( top1 == -1)
+                    if(top1 == -1)
                     {
                         printf("stack 1 is empty do not perform display opration\n");
                     }
                     else
                     {
-                        for( i= top1;i>=0;i--)
+                        // Traverse stack from top down to bottom
+                        for(i = top1; i >= 0; i--)
                         {
-                            printf("%d\n",stack1[i]);
+                            printf("%d\n", stack1[i]);
                         }
 
                         printf("\nSUCESSFULLY PROFORM DISPLAY STACK 1 OPRATION\n ");
                     }
-
-                    
 
                     break;
 
@@ -380,35 +352,31 @@ int main()
                     }
                     else
                     {
-                        for(i=top2;i>=0;i--)
+                        for(i = top2; i >= 0; i--)
                         {
-                            printf("%d\n",stack2[i]);
+                            printf("%d\n", stack2[i]);
                         }
 
                         printf("\nSUCCESSFULLY PERFORM DISPLAY OPRATION STACK 2 OPRATION\n");
                     }
 
-                    
-
                     break;
 
                     case 3: // display 3 stack
 
-                    if( top3 == -1)
+                    if(top3 == -1)
                     {
                         printf("stack 3 is empty do not perform display opration\n");
                     }
                     else
                     {
-                        for(i=top3;i>=0;i--)
+                        for(i = top3; i >= 0; i--)
                         {
-                            printf("%d\n",stack3[i]);
+                            printf("%d\n", stack3[i]);
                         }
 
                         printf("SUCCESSFULLY PERFORM DISPLAY STACK 3 OPRATION\\n");
                     }
-
-                    
 
                     break;
 
@@ -416,7 +384,7 @@ int main()
 
                 break;
 
-             }//end of main case 3 display opration while loop
+             }// end of main case 3 display opration while loop
 
              break;
 
@@ -431,5 +399,4 @@ int main()
     }// end of main while loop
 
     return 0;
-
 }
