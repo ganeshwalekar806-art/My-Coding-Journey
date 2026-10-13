@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+int main()
+{
+    int target,n,i,j;
+    int num[100];
+
+    printf("ENTER ARRAY LENGTH: ");
+    scanf("%d",&n);
+
+    printf("ENTER ELEMENTS OF AN ARRAY:\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&num[i]);
+    }
+
+    printf("ENTER TARGET VARIABLE: ");
+    scanf("%d",&target);
+  
+    // THIS IS BRUTE FORCE LOGIC
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<i;j++)
+        {
+            if(num[i] + num[j] == target )
+            {
+                printf("[%d],[%d]",i,j);
+            }
+        }
+    }
+
+    return 0;
+}
