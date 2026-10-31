@@ -1,0 +1,55 @@
+int value(char ch)
+{
+    switch (ch)
+    {
+        case 'I' :
+        case 'i': return 1;
+
+        case 'V': 
+        case 'v': return 5;
+        
+        case 'X': 
+        case 'x': return 10;
+
+        case 'L':
+        case 'l': return 50;
+
+        case 'C':
+        case 'c': return 100;
+
+        case 'D':
+        case 'd': return 500;
+
+        case 'M': 
+        case 'm':return 1000;
+
+        default:  return 0;
+    }
+}
+
+int romanToInt(char* s) {
+
+    int sum = 0;
+    int i = 0;
+    int current = 0,next = 0;
+
+    while( s[i] != '\0')
+    {
+        current = value(s[i]);
+        next = value(s[i+1]);
+
+        if(current < next)
+        {
+            sum = sum - current;
+        }
+        else
+        {
+            sum = sum + current;
+        }
+
+        i++;
+    }
+
+    return sum;
+    
+}
