@@ -1,0 +1,278 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int ele;
+    struct node *next;
+};
+
+int get_index(int val)
+{
+    int ind;
+    ind = val % 10;
+    return ind;
+}
+
+int get_powers(int b,int pw)
+{
+    int i,res = 1;
+    for(i = 0;i<=pw;i++)
+    {
+        res = res * b;
+    }
+
+    return res;
+}
+
+int main()
+{
+    int ind,temp,num,i = 0,ch;
+    int a[20] = {0};
+    int qu_ind,pw,flag = 1;
+    char c;
+    int num,i,serc;
+    struct node *nn,*temp1;
+    struct node *p[10];
+
+    while(1)
+    {
+       printf("\n1 => STORE YOUR ELEMENTS \n");
+       printf("2 => SEARCH ELEMENTS\n");
+       printf("3 => EXIT OPRATION\n\n");
+       printf("ENTER YOUR OPRATION: ");
+       scanf("%d",&ch);
+
+       switch(ch)
+       {
+           case 1: //  STORE ELEMENTS 
+           {
+               // probing use for if elements is collision
+               printf("\nENTER YOUR PROBING TECHING\n\n");
+               printf("1 => LINEAR PROBING\n");
+               printf("2 => QUADRATIC PROBING\n");
+               printf("3 => LINKED OR CHAINING PROBING\n\n");
+               printf("ENTER YOUR TECHNICH: ");
+               scanf("%d",&ch);
+
+               switch(ch)
+              {
+                case 1: // LINEAR PROBING 
+
+                    printf("ENTER ELEMENTS: ");
+                    while(i<8)
+                    {
+                        scanf("%d",&num);
+                        ind = get_index(num);
+
+                        if(a[ind] == 0)
+                        {
+                             a[ind] = num;
+                        }
+                        else
+                        {
+                            while(a[ind] != 0)
+                            {
+                                ind++;
+                            }
+
+                            a[ind] = num;
+
+                        } // end of else satement
+
+                        i++;
+
+                    } // end of while loop 
+
+                    break;
+
+                case 2: // QUADRATIC PROBING
+
+                      printf("ENTER ANY THREE ELEMENT : ");
+                      while(i<8)
+                      {
+                        scanf("%d",&num);
+                        ind = get_index(num);
+
+                        if(a[ind] == 0)
+                        {
+                            a[ind] = num;
+                        }
+                        else
+                        {
+                            pw = 2;
+                            while(1)
+                            {
+                               qu_ind = get_powers(ind,pw);
+                               if(a[ind] == 0)
+                               {
+                                  break;
+                               }
+
+                               pw++;
+
+                            }
+
+                            a[qu_ind] = num;
+                        }
+
+                        i++;
+
+                      }
+
+                break;
+                
+                case 3: // LINEAR LINKED PROBING
+
+                    for(i=0;i<=19;i++)
+                    {
+                        p[i] = NULL;
+                    }
+
+                    printf("ENTER ELEMENTS : ");
+                    i=1;
+
+                    while(i<=10)
+                    {
+                        nn = (struct node *)malloc(sizeof(struct node));
+                        scanf("%d",&nn->ele);
+
+                        nn->next = NULL;
+                        ind = get_index(nn->ele);
+
+                        if(p[ind] == NULL)
+                        {
+                            p[ind] = nn;
+                        }
+                        else
+                        {
+                            temp = p[ind];
+
+                            while(temp1->next != NULL)
+                            {
+                                temp = temp1->next;
+                            }
+
+                            temp1->next = nn;
+                        }
+
+                        i++;
+                    }// END OF WHILE LOOP
+
+                break;
+
+             } // END OF CASE 1 STORE ELEMENT SWITCH CASE 
+
+            }  
+
+           case 2: // SEARCH ELEMENTS 
+           {
+                // probing use for if elements is collision
+               printf("\nENTER YOUR SEARCH TECHNICH\n\n");
+               printf("1 => SEARCH IN LINEAR PROBING TECHNICH\n");
+               printf("2 => SERAHC IN QUADRATIC PROBING TECHNICH\n");
+               printf("3 => SERACH IN LINKED OR CHAINING PROBING TECHNICH\n\n");
+               printf("ENTER YOUR TECHNICH: ");
+               scanf("%d",&ch);
+
+               switch(ch)
+               {
+                  case 1: // SEARCH IN LINEAR PROBING 
+
+                    printf("ENTER YOUR ELEMENTS FO SEARCH : ");
+                    scanf("%d",&temp);
+
+                    ind = get_index(temp);
+
+                    if(a[ind] == temp)
+                    {
+                        printf("\nELEMENT IS PRESENT\n");
+                    }
+                    else
+                    {
+                        while(a[ind] != 0)
+                        {
+                            if(a[ind] == temp)
+                            {
+                                printf("\nELEMENT IS PRESENT\n");
+                                break;
+                            }
+                            else
+                            {
+                                ind++;
+                            }
+                        }
+                    }
+
+                    break;
+
+                  case 2: // SEARCH IN QUADRATIC TECHNIC
+
+                      printf("ENTER ELEMENT YOU WANT TO SEARCH : ");
+                      scanf("%d",&temp);
+
+                      ind = get_index(temp);
+                      qu_ind = ind;
+                      pw = 1;
+
+                      do
+                      {
+                         if(a[qu_ind] == temp)
+                         {
+                            flag = 2;
+                            break;
+                         }
+                        
+                      } while (qu_ind<=19);
+
+                      if(flag == 2)
+                      {
+                         printf("\nNUMBER IS PRESENT\n");
+                      }
+                      else
+                      {
+                         printf("\nNOT PRESENT\n");
+                      }
+
+                  break;
+                  
+                  case 3: // SEARCH IN LINKED AND CHAINING TECHNICH
+
+                     printf("ENTER ELEMENT YOU WANT TO SEARCH : ");
+                     scanf("%d",&serc);
+
+                     ind = get_ind(serc);
+                     temp = p[ind];
+                     
+                     while(temp1->ele != serc && temp1 != NULL)
+                     {
+                        temp = temp1->next;
+                     }
+
+                     if(temp == NULL)
+                     {
+                        printf("\nNOT PRESENT\n");
+                     }
+                     else
+                     {
+                        printf("\nPRESENT\n");
+                     }
+
+                  break;
+
+
+               } // END OF CASE 2 SEARCH ELEMENT SWITCH CASE 
+
+            }  
+
+           case 3:// EXIT OPRATION
+           
+              exit(0);
+
+       } // END OF MAIN PROGRAMM SWITCH CASE
+
+       return 0;
+
+    }
+
+}
