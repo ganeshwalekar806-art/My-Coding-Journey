@@ -9,6 +9,8 @@ This directory contains my daily LeetCode problem solutions implemented in C lan
 - [ ] Problem 2: Add Two Numbers
 - [ ] Problem 13: Roman To Integer
 - [ ] Problem 9: Palimdrome Number
+- [ ] Probleme 12: Integer To Roman
+- [ ] Probleme 7: Reverse Integer
 
 ---
 *“Building strong problem-solving skills, one problem at a time.”*
